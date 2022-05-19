@@ -4,8 +4,12 @@ int[] bodyA = new int[num]; //body amount
 int[] bodyY = new int[num];
 float bodyX = 500;
 float bodyYY = height;
-float size = 100;
+float size = 80;
 color[] c= new color[num]; // colours
+
+IntList bodies;
+
+float randomY = random(+80);
 
 void setup()
 {
@@ -13,10 +17,11 @@ void setup()
   colorMode(RGB);
   
   
+  
   for(int i =0; i <num; i++)
   {
-    bodyA[i] = int(random(1))+10;
-    bodyY[i] = int(random(200, 700));
+    bodyA[i] = int(random(1,10));
+    bodyY[i] = int(random(240, 720));
     c[i] = color(random(255),random(255),random(255));//random color
    
   }
@@ -30,22 +35,35 @@ void draw()
   {
     body(bodyA[i],bodyY[i], c[i]);  
     
-    if (bodyY[i] >800)
-    {
-      bodyA[i] = i;
-    }
+   
   } 
 }
 
 void body(int bodyA, int bodyY, color c)
 {
-  pushMatrix();
+  //pushMatrix();
   fill(0);
 
   strokeWeight(10);
   stroke(c);
-  //circle (bodyX, bodyYY, size); 
+ // popMatrix();
   circle (bodyX, bodyY, size); 
-  popMatrix();
+  
+
+ // circle (bodyX, bod, size);
+  
+  /*
+  circle (bodyX, bodyYY, size);
+  circle (bodyX, bodyYY + 80, size);
+  circle (bodyX, bodyYY + 160, size);
+  circle (bodyX, bodyYY + 240, size);
+  circle (bodyX, bodyYY + 320, size);
+  circle (bodyX, bodyYY + 400, size);
+  circle (bodyX, bodyYY + 480, size);
+  circle (bodyX, bodyYY + 560, size);
+  circle (bodyX, bodyYY + 640, size);
+  circle (bodyX, bodyYY + 720, size);*/
+
+ // popMatrix();
   delay(5);
 }
